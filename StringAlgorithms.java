@@ -1,10 +1,9 @@
 public class StringAlgorithms {
    public static String printCharacters(String word) {
       String newString = "";
-      for (int i = 0; i < word.length()-1; i++) {
+      for (int i = 0; i < word.length(); i++) {
          newString += word.substring(i,i+1) + "\n";
       }
-      newString += word.substring(word.length()-1,word.length());
       return newString;
    }
    public static String reverseWord(String word) {
