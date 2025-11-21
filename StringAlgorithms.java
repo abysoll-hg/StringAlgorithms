@@ -1,17 +1,20 @@
 public class StringAlgorithms {
-   public static void printCharacters(String word) {
-      for (int i = 0; i < word.length(); i++) {
-         System.out.println(word.substring(i,i+1));
+   public static String printCharacters(String word) {
+      String newString = "";
+      for (int i = 0; i < word.length()-1; i++) {
+         newString += word.substring(i,i+1) + "\n";
       }
+      newString += word.substring(word.length()-1,word.length());
+      return newString;
    }
-   public static void reverseWord(String word) {
+   public static String reverseWord(String word) {
       String newString = "";
       for (int i = word.length(); i > 0; i--) {
          newString += word.substring(i-1,i);
       }
-      System.out.println(newString); 
+      return newString; 
    }
-   public static void capitalizeString(String sentence) {
+   public static String capitalizeString(String sentence) {
       String newString = "";
       newString += sentence.substring(0,1).toUpperCase();
       for (int i = 1; i < sentence.length(); i++) {
@@ -22,7 +25,7 @@ public class StringAlgorithms {
             newString += sentence.substring(i,i+1);
          }
       }
-      System.out.println(newString);
+      return newString;
    }
    public static boolean detectPalindrome(String word) {
       String newString = "";
@@ -36,25 +39,21 @@ public class StringAlgorithms {
          return false;
       }
    }
-   public static void firstUniqueChar(String word) {
-      String jI;
-      String iI;
+   public static char firstUniqueChar(String word) {
+      String cut = "";
       for (int i = 1; i < word.length(); i++) {
-         iI = word.substring(i-1,i);
-         for (int j = word.length(); j > 0; j--) {
-            jI = word.substring(j-1,j);
-            if (iI.equals(jI)) {
-               word = word.replace(iI,"");
-            }
+         cut = word.substring(0,i)+word.substring(i+1);
+         if (cut.indexOf(word.charAt(i)) == -1 ) {
+            return word.charAt(i);
          }
       }
-      System.out.println(word.substring(0,1));
+      return ' ';
    }
    public static void main(String[] Args) {
-      printCharacters("hello");
-      reverseWord("hello");
-      capitalizeString("the quick brown fox jumped over the lazy dog");
+      System.out.println(printCharacters("hello"));
+      System.out.println(reverseWord("hello"));
+      System.out.println(capitalizeString("the quick brown fox jumped over the lazy dog"));
       System.out.println(detectPalindrome("racecar"));
-      //firstUniqueChar("swiss");
+      System.out.println(firstUniqueChar("swiss"));
    }
 }
