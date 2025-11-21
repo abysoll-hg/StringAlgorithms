@@ -55,6 +55,6 @@ public class StringAlgorithms {
       reverseWord("hello");
       capitalizeString("the quick brown fox jumped over the lazy dog");
       System.out.println(detectPalindrome("racecar"));
-      firstUniqueChar("swiss");
+      //firstUniqueChar("swiss");
    }
 }
